@@ -9,18 +9,30 @@ class HierarchyExtended {
 
     const rows = table.getElementsByTagName('tr');
 
+    let cellsInRow = 1;
+
     for (let i = 0; i < hier.length; i++) {
       rows[i].className += ' id_' + hier[i].id + ' pid_' + hier[i].parent;
       if (hier[i].level) rows[i].className += ' collapsed-row';
       const div = document.createElement('div');
       div.classList.add('hier-button');
       hier[i].hasChildren ? div.classList.add('collapse-button') : div.classList.add('collapse-button-single');
-      const td = rows[i].getElementsByTagName('td')[0];
+      const tds = rows[i].getElementsByTagName('td');
+      const td = tds[0];
       td.style.paddingLeft = 20 * hier[i].level + 'px';
       td.insertBefore(div, td.firstChild);
-    }
 
+      if (tds.length > cellsInRow) {
+        cellsInRow = tds.length;
+      }
+    }
     table.addEventListener("click", (e) => this.clickRows(e));
+
+    const cellWidth = 100/cellsInRow;
+    const cells = table.getElementsByTagName('td');
+    [].forEach.call(cells, cell => cell.style.width = (cell.colSpan ? cellWidth * parseInt(cell.colSpan) : cellWidth) + '%');
+
+    table.parentNode.classList.add('table-full-size');
   }
 
   clickRows(e) {

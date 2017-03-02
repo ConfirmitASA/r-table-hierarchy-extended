@@ -49,7 +49,6 @@
 
 .reportal-table{
   font-family: 'Helvetica Neue', Roboto, sans-serif;
-  width:100%;
   font-size:14px;
   border-collapse:collapse;
 
@@ -90,4 +89,8 @@
     background: var(--primary-background-color,#f6f6f6);
   }
 
+}
+
+.table-full-size {
+  width: 100%;
 }
