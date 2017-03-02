@@ -5,6 +5,7 @@ class HierarchyExtended {
     let {table, hier} = options;
     if (!table || !hier) return;
     this.table = table;
+    table.parentNode.classList.add('reportal-table');
 
     const rows = table.getElementsByTagName('tr');
 
