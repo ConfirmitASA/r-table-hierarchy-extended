@@ -51,8 +51,6 @@
   font-family: 'Helvetica Neue', Roboto, sans-serif;
   font-size:14px;
   border-collapse:collapse;
-  table-layout: fixed;
-  width: 100%;
 
   &>thead>tr>td,
   &>thead>tr>th{
@@ -90,4 +88,10 @@
     /*coloring for even columns from end of table to compensate for uneven td count because of block headers*/
     background: var(--primary-background-color,#f6f6f6);
   }
+
+}
+
+.table-layout-fixed {
+  table-layout: fixed;
+  width: 100%;
 }
